@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sentiment Analysis Result</title>
+</head>
+<body>
+    <h1>Sentiment Analysis Result</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Analyze Again</button>
+    </form>
+    <h2>Sentiment</h2>
+    <p>{{ sentiment }}</p>
+</body>
+</html>
