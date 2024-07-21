@@ -19,7 +19,7 @@ def analyze_sentiment(request):
         if form.is_valid():
             text = form.cleaned_data['text']
             prediction = model.predict([text])[0]
-            sentiment = prediction
+            sentiment = 'Positive' if prediction == 'pos' else 'Negative'
             return render(request, 'sentiment_app/result.html', {'form': form, 'sentiment': sentiment})
     else:
         form = SentimentForm()

@@ -62,7 +62,13 @@
             <button type="submit">Analyze Again</button>
         </form>
         <h2>Sentiment</h2>
-        <p>{{ sentiment }}</p>
+        {% if sentiment == "Positive" %}
+            <p style="color: green;">{{ sentiment }}</p>
+        {% elif sentiment == "Negative" %}
+            <p style="color: red;">{{ sentiment }}</p>
+        {% else %}
+            <p style="color: orange;">{{ sentiment }}</p>
+        {% endif %}
     </div>
 </body>
 </html>
