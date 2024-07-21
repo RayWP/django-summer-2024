@@ -6,6 +6,9 @@ from .forms import SentimentForm
 # 加載模型
 model = joblib.load('sentiment_app/movie_review_model.pkl')
 
+def index(request):
+    return render(request, 'index.html')
+
 def analyze_sentiment(request):
     if request.method == 'POST':
         form = SentimentForm(request.POST)
