@@ -30,16 +30,17 @@ def create_student(request):
             name = form.cleaned_data['name']
             age = form.cleaned_data['age']
             student = Student(name=name, age=age)
+            student.save()
+
             new_form = StudentForm()
             # get all student
-            students = Student.objects.all()
-            student.save()
-            return render(request, 'sentiment_app/create_student.html', {'form': new_form, 'message': 'Student created successfully', 'students': students})
+            student_list = Student.objects.all()
+            return render(request, 'sentiment_app/create_student.html', {'form': new_form, 'message': 'Student created successfully', 'students': student_list})
     else:
         # get all student
-        students = Student.objects.all()
+        student_list = Student.objects.all()
         form = StudentForm()
-        return render(request, 'sentiment_app/create_student.html', {'form': form, 'students': students})
+        return render(request, 'sentiment_app/create_student.html', {'form': form, 'students': student_list})
 
 
 
