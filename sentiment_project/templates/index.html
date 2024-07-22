@@ -36,7 +36,7 @@
 </head>
 <body>
     <div class="container">
-        <button onclick="window.location.href='/sentiment/analyze'">Sentiment Apps</button>
+        <a href={% url 'analyze_sentiment' %}><button>Sentiment Analysis</button></a>
         <button onclick="window.location.href='/loop'">For loop example</button>
     </div>
 </body>
